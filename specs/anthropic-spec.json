@@ -115,6 +115,616 @@
         }
       }
     },
+    "/v1/messages?beta=true": {
+      "post": {
+        "tags": [
+          "Messages"
+        ],
+        "summary": "Create a Message",
+        "description": "Send a structured list of input messages with text and/or image content, and the model will generate the next message in the conversation.\n\nThe Messages API can be used for either single queries or stateless multi-turn conversations.",
+        "operationId": "beta_messages_post",
+        "parameters": [
+          {
+            "name": "anthropic-beta",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "items": {
+                "type": "string"
+              },
+              "description": "Optional header to specify the beta version(s) you want to use.\n\nTo use multiple betas, use a comma separated list like `beta1,beta2` or specify the header multiple times for each beta.",
+              "title": "Anthropic-Beta",
+              "x-stainless-override-schema": {
+                "x-stainless-param": "betas",
+                "x-stainless-extend-default": true,
+                "type": "array",
+                "description": "Optional header to specify the beta version(s) you want to use.",
+                "items": {
+                  "$ref": "#/components/schemas/AnthropicBeta"
+                }
+              }
+            },
+            "description": "Optional header to specify the beta version(s) you want to use.\n\nTo use multiple betas, use a comma separated list like `beta1,beta2` or specify the header multiple times for each beta."
+          },
+          {
+            "name": "anthropic-version",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "description": "The version of the Anthropic API you want to use.\n\nRead more about versioning and our version history [here](https://docs.anthropic.com/en/api/versioning).",
+              "title": "Anthropic-Version"
+            },
+            "description": "The version of the Anthropic API you want to use.\n\nRead more about versioning and our version history [here](https://docs.anthropic.com/en/api/versioning)."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Message object.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BetaMessage"
+                }
+              }
+            }
+          },
+          "4XX": {
+            "description": "Error response.\n\nSee our [errors documentation](https://docs.anthropic.com/en/api/errors) for more details.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BetaErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/BetaCreateMessageParams"
+              }
+            }
+          },
+          "required": true
+        }
+      }
+    },
+    "/v1/messages/batches?beta=true": {
+      "post": {
+        "tags": [
+          "Message Batches"
+        ],
+        "summary": "Create a Message Batch",
+        "description": "Send a batch of Message creation requests.\n\nThe Message Batches API can be used to process multiple Messages API requests at once. Once a Message Batch is created, it begins processing immediately. Batches can take up to 24 hours to complete.",
+        "operationId": "beta_message_batches_post",
+        "parameters": [
+          {
+            "name": "anthropic-beta",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "items": {
+                "type": "string"
+              },
+              "description": "Optional header to specify the beta version(s) you want to use.\n\nTo use multiple betas, use a comma separated list like `beta1,beta2` or specify the header multiple times for each beta.",
+              "title": "Anthropic-Beta",
+              "x-stainless-override-schema": {
+                "x-stainless-param": "betas",
+                "x-stainless-extend-default": true,
+                "type": "array",
+                "description": "Optional header to specify the beta version(s) you want to use.",
+                "items": {
+                  "$ref": "#/components/schemas/AnthropicBeta"
+                }
+              }
+            },
+            "description": "Optional header to specify the beta version(s) you want to use.\n\nTo use multiple betas, use a comma separated list like `beta1,beta2` or specify the header multiple times for each beta."
+          },
+          {
+            "name": "anthropic-version",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "description": "The version of the Anthropic API you want to use.\n\nRead more about versioning and our version history [here](https://docs.anthropic.com/en/api/versioning).",
+              "title": "Anthropic-Version"
+            },
+            "description": "The version of the Anthropic API you want to use.\n\nRead more about versioning and our version history [here](https://docs.anthropic.com/en/api/versioning)."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BetaMessageBatch"
+                }
+              }
+            }
+          },
+          "4XX": {
+            "description": "Error response.\n\nSee our [errors documentation](https://docs.anthropic.com/en/api/errors) for more details.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BetaErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/BetaCreateMessageBatchParams"
+              }
+            }
+          },
+          "required": true
+        }
+      },
+      "get": {
+        "tags": [
+          "Message Batches"
+        ],
+        "summary": "List Message Batches",
+        "description": "List all Message Batches within a Workspace. Most recently created batches are returned first.",
+        "operationId": "beta_message_batches_list",
+        "parameters": [
+          {
+            "name": "before_id",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "description": "ID of the object to use as a cursor for pagination. When provided, returns the page of results immediately before this object.",
+              "title": "Before Id"
+            },
+            "description": "ID of the object to use as a cursor for pagination. When provided, returns the page of results immediately before this object."
+          },
+          {
+            "name": "after_id",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "description": "ID of the object to use as a cursor for pagination. When provided, returns the page of results immediately after this object.",
+              "title": "After Id"
+            },
+            "description": "ID of the object to use as a cursor for pagination. When provided, returns the page of results immediately after this object."
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "maximum": 100,
+              "minimum": 1,
+              "description": "Number of items to return per page.\n\nDefaults to `20`. Ranges from `1` to `100`.",
+              "default": 20,
+              "title": "Limit"
+            },
+            "description": "Number of items to return per page.\n\nDefaults to `20`. Ranges from `1` to `100`."
+          },
+          {
+            "name": "anthropic-beta",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "items": {
+                "type": "string"
+              },
+              "description": "Optional header to specify the beta version(s) you want to use.\n\nTo use multiple betas, use a comma separated list like `beta1,beta2` or specify the header multiple times for each beta.",
+              "title": "Anthropic-Beta",
+              "x-stainless-override-schema": {
+                "x-stainless-param": "betas",
+                "x-stainless-extend-default": true,
+                "type": "array",
+                "description": "Optional header to specify the beta version(s) you want to use.",
+                "items": {
+                  "$ref": "#/components/schemas/AnthropicBeta"
+                }
+              }
+            },
+            "description": "Optional header to specify the beta version(s) you want to use.\n\nTo use multiple betas, use a comma separated list like `beta1,beta2` or specify the header multiple times for each beta."
+          },
+          {
+            "name": "anthropic-version",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "description": "The version of the Anthropic API you want to use.\n\nRead more about versioning and our version history [here](https://docs.anthropic.com/en/api/versioning).",
+              "title": "Anthropic-Version"
+            },
+            "description": "The version of the Anthropic API you want to use.\n\nRead more about versioning and our version history [here](https://docs.anthropic.com/en/api/versioning)."
+          },
+          {
+            "name": "x-api-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "description": "Your unique API key for authentication. \n\nThis key is required in the header of all API requests, to authenticate your account and access Anthropic's services. Get your API key through the [Console](https://console.anthropic.com/settings/keys). Each key is scoped to a Workspace.",
+              "title": "X-Api-Key"
+            },
+            "description": "Your unique API key for authentication. \n\nThis key is required in the header of all API requests, to authenticate your account and access Anthropic's services. Get your API key through the [Console](https://console.anthropic.com/settings/keys). Each key is scoped to a Workspace."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BetaListResponse_MessageBatch_"
+                }
+              }
+            }
+          },
+          "4XX": {
+            "description": "Error response.\n\nSee our [errors documentation](https://docs.anthropic.com/en/api/errors) for more details.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BetaErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/messages/batches/{message_batch_id}?beta=true": {
+      "get": {
+        "tags": [
+          "Message Batches"
+        ],
+        "summary": "Retrieve a Message Batch",
+        "description": "This endpoint is idempotent and can be used to poll for Message Batch completion. To access the results of a Message Batch, make a request to the `results_url` field in the response.",
+        "operationId": "beta_message_batches_retrieve",
+        "parameters": [
+          {
+            "name": "message_batch_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "ID of the Message Batch.",
+              "title": "Message Batch Id"
+            },
+            "description": "ID of the Message Batch."
+          },
+          {
+            "name": "anthropic-beta",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "items": {
+                "type": "string"
+              },
+              "description": "Optional header to specify the beta version(s) you want to use.\n\nTo use multiple betas, use a comma separated list like `beta1,beta2` or specify the header multiple times for each beta.",
+              "title": "Anthropic-Beta",
+              "x-stainless-override-schema": {
+                "x-stainless-param": "betas",
+                "x-stainless-extend-default": true,
+                "type": "array",
+                "description": "Optional header to specify the beta version(s) you want to use.",
+                "items": {
+                  "$ref": "#/components/schemas/AnthropicBeta"
+                }
+              }
+            },
+            "description": "Optional header to specify the beta version(s) you want to use.\n\nTo use multiple betas, use a comma separated list like `beta1,beta2` or specify the header multiple times for each beta."
+          },
+          {
+            "name": "anthropic-version",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "description": "The version of the Anthropic API you want to use.\n\nRead more about versioning and our version history [here](https://docs.anthropic.com/en/api/versioning).",
+              "title": "Anthropic-Version"
+            },
+            "description": "The version of the Anthropic API you want to use.\n\nRead more about versioning and our version history [here](https://docs.anthropic.com/en/api/versioning)."
+          },
+          {
+            "name": "x-api-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "description": "Your unique API key for authentication. \n\nThis key is required in the header of all API requests, to authenticate your account and access Anthropic's services. Get your API key through the [Console](https://console.anthropic.com/settings/keys). Each key is scoped to a Workspace.",
+              "title": "X-Api-Key"
+            },
+            "description": "Your unique API key for authentication. \n\nThis key is required in the header of all API requests, to authenticate your account and access Anthropic's services. Get your API key through the [Console](https://console.anthropic.com/settings/keys). Each key is scoped to a Workspace."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BetaMessageBatch"
+                }
+              }
+            }
+          },
+          "4XX": {
+            "description": "Error response.\n\nSee our [errors documentation](https://docs.anthropic.com/en/api/errors) for more details.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BetaErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/messages/batches/{message_batch_id}/cancel?beta=true": {
+      "post": {
+        "tags": [
+          "Message Batches"
+        ],
+        "summary": "Cancel a Message Batch",
+        "description": "Batches may be canceled any time before processing ends. Once cancellation is initiated, the batch enters a `canceling` state, at which time the system may complete any in-progress, non-interruptible requests before finalizing cancellation.\n\nThe number of canceled requests is specified in `request_counts`. To determine which requests were canceled, check the individual results within the batch. Note that cancellation may not result in any canceled requests if they were non-interruptible.",
+        "operationId": "beta_message_batches_cancel",
+        "parameters": [
+          {
+            "name": "message_batch_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "ID of the Message Batch.",
+              "title": "Message Batch Id"
+            },
+            "description": "ID of the Message Batch."
+          },
+          {
+            "name": "anthropic-beta",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "items": {
+                "type": "string"
+              },
+              "description": "Optional header to specify the beta version(s) you want to use.\n\nTo use multiple betas, use a comma separated list like `beta1,beta2` or specify the header multiple times for each beta.",
+              "title": "Anthropic-Beta",
+              "x-stainless-override-schema": {
+                "x-stainless-param": "betas",
+                "x-stainless-extend-default": true,
+                "type": "array",
+                "description": "Optional header to specify the beta version(s) you want to use.",
+                "items": {
+                  "$ref": "#/components/schemas/AnthropicBeta"
+                }
+              }
+            },
+            "description": "Optional header to specify the beta version(s) you want to use.\n\nTo use multiple betas, use a comma separated list like `beta1,beta2` or specify the header multiple times for each beta."
+          },
+          {
+            "name": "anthropic-version",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "description": "The version of the Anthropic API you want to use.\n\nRead more about versioning and our version history [here](https://docs.anthropic.com/en/api/versioning).",
+              "title": "Anthropic-Version"
+            },
+            "description": "The version of the Anthropic API you want to use.\n\nRead more about versioning and our version history [here](https://docs.anthropic.com/en/api/versioning)."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BetaMessageBatch"
+                }
+              }
+            }
+          },
+          "4XX": {
+            "description": "Error response.\n\nSee our [errors documentation](https://docs.anthropic.com/en/api/errors) for more details.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BetaErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/messages/batches/{message_batch_id}/results?beta=true": {
+      "get": {
+        "tags": [
+          "Message Batches"
+        ],
+        "summary": "Retrieve Message Batch results",
+        "description": "Streams the results of a Message Batch as a `.jsonl` file.\n\nEach line in the file is a JSON object containing the result of a single request in the Message Batch. Results are not guaranteed to be in the same order as requests. Use the `custom_id` field to match results to requests.",
+        "operationId": "beta_message_batches_results",
+        "parameters": [
+          {
+            "name": "message_batch_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "ID of the Message Batch.",
+              "title": "Message Batch Id"
+            },
+            "description": "ID of the Message Batch."
+          },
+          {
+            "name": "anthropic-beta",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "items": {
+                "type": "string"
+              },
+              "description": "Optional header to specify the beta version(s) you want to use.\n\nTo use multiple betas, use a comma separated list like `beta1,beta2` or specify the header multiple times for each beta.",
+              "title": "Anthropic-Beta",
+              "x-stainless-override-schema": {
+                "x-stainless-param": "betas",
+                "x-stainless-extend-default": true,
+                "type": "array",
+                "description": "Optional header to specify the beta version(s) you want to use.",
+                "items": {
+                  "$ref": "#/components/schemas/AnthropicBeta"
+                }
+              }
+            },
+            "description": "Optional header to specify the beta version(s) you want to use.\n\nTo use multiple betas, use a comma separated list like `beta1,beta2` or specify the header multiple times for each beta."
+          },
+          {
+            "name": "anthropic-version",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "description": "The version of the Anthropic API you want to use.\n\nRead more about versioning and our version history [here](https://docs.anthropic.com/en/api/versioning).",
+              "title": "Anthropic-Version"
+            },
+            "description": "The version of the Anthropic API you want to use.\n\nRead more about versioning and our version history [here](https://docs.anthropic.com/en/api/versioning)."
+          },
+          {
+            "name": "x-api-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "description": "Your unique API key for authentication. \n\nThis key is required in the header of all API requests, to authenticate your account and access Anthropic's services. Get your API key through the [Console](https://console.anthropic.com/settings/keys). Each key is scoped to a Workspace.",
+              "title": "X-Api-Key"
+            },
+            "description": "Your unique API key for authentication. \n\nThis key is required in the header of all API requests, to authenticate your account and access Anthropic's services. Get your API key through the [Console](https://console.anthropic.com/settings/keys). Each key is scoped to a Workspace."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/x-jsonl": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary",
+                  "x-line-schema": {
+                    "$ref": "#/components/schemas/BetaMessageBatchIndividualResponse"
+                  }
+                }
+              }
+            }
+          },
+          "4XX": {
+            "description": "Error response.\n\nSee our [errors documentation](https://docs.anthropic.com/en/api/errors) for more details.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BetaErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/messages/count_tokens?beta=true": {
+      "post": {
+        "tags": [
+          "Messages"
+        ],
+        "summary": "Count tokens in a Message",
+        "description": "Count the number of tokens in a Message.\n\nThe Token Count API can be used to count the number of tokens in a Message, including tools, images, and documents, without creating it.",
+        "operationId": "beta_messages_count_tokens_post",
+        "parameters": [
+          {
+            "name": "anthropic-beta",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "items": {
+                "type": "string"
+              },
+              "description": "Optional header to specify the beta version(s) you want to use.\n\nTo use multiple betas, use a comma separated list like `beta1,beta2` or specify the header multiple times for each beta.",
+              "title": "Anthropic-Beta",
+              "x-stainless-override-schema": {
+                "x-stainless-param": "betas",
+                "x-stainless-extend-default": true,
+                "type": "array",
+                "description": "Optional header to specify the beta version(s) you want to use.",
+                "items": {
+                  "$ref": "#/components/schemas/AnthropicBeta"
+                }
+              }
+            },
+            "description": "Optional header to specify the beta version(s) you want to use.\n\nTo use multiple betas, use a comma separated list like `beta1,beta2` or specify the header multiple times for each beta."
+          },
+          {
+            "name": "anthropic-version",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "description": "The version of the Anthropic API you want to use.\n\nRead more about versioning and our version history [here](https://docs.anthropic.com/en/api/versioning).",
+              "title": "Anthropic-Version"
+            },
+            "description": "The version of the Anthropic API you want to use.\n\nRead more about versioning and our version history [here](https://docs.anthropic.com/en/api/versioning)."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BetaCountMessageTokensResponse"
+                }
+              }
+            }
+          },
+          "4XX": {
+            "description": "Error response.\n\nSee our [errors documentation](https://docs.anthropic.com/en/api/errors) for more details.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BetaErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/BetaCountMessageTokensParams"
+              }
+            }
+          },
+          "required": true
+        }
+      }
+    },
     "/v1/messages?beta=prompt_caching": {
       "post": {
         "tags": [

@@ -2,6 +2,7 @@ version: 3
 
 vars:
   spec_uri: https://raw.githubusercontent.com/laszukdawid/anthropic-openapi-spec/refs/heads/main/hosted_spec_v3.0.0.json
+  spec_local: specs/anthropic-spec.json
 
 tasks:
   install:openapi:
@@ -17,4 +18,9 @@ tasks:
     desc: Download the spec for the bedrock model
     cmds:
       - mkdir -p specs
-      - curl -o specs/anthropic-spec.json {{.spec_uri}}
+      - curl -o {{.spec_local}} {{.spec_uri}}
+  
+  spec:clean:
+    desc: Get rid of `?beta=true` endpoints from the spec
+    cmds:
+      - jq '.paths |= with_entries(select(.key | endswith("?beta=true") | not))' {{.spec_local}} > output.json
