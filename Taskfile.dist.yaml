@@ -1,0 +1,20 @@
+version: 3
+
+vars:
+  spec_uri: https://raw.githubusercontent.com/laszukdawid/anthropic-openapi-spec/refs/heads/main/hosted_spec_v3.0.0.json
+
+tasks:
+  install:openapi:
+    desc: Install openapi generator
+    cmds:
+      - go install github.com/deepmap/oapi-codegen/cmd/oapi-codegen@latest
+
+  run:generate:
+    cmd: go generate ./...
+
+  # Misc
+  spec:download:
+    desc: Download the spec for the bedrock model
+    cmds:
+      - mkdir -p specs
+      - curl -o specs/anthropic-spec.json {{.spec_uri}}
