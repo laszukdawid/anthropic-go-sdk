@@ -23,4 +23,5 @@ tasks:
   spec:clean:
     desc: Get rid of `?beta=true` endpoints from the spec
     cmds:
-      - jq '.paths |= with_entries(select(.key | endswith("?beta=true") | not))' {{.spec_local}} > output.json
+      - cp {{.spec_local}} {{.spec_local}}.bak
+      - jq '.paths |= with_entries(select(.key | endswith("?beta=true") | not))' {{.spec_local}}.bak > {{.spec_local}}
