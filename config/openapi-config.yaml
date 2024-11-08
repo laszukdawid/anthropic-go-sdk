@@ -1,6 +1,7 @@
 # yaml-language-server: $schema=https://raw.githubusercontent.com/oapi-codegen/oapi-codegen/HEAD/configuration-schema.json
-package: main
+package: client
 generate:
-  std-http-server: true
+  # std-http-server: true
   models: true
+  client: true
 output: gen_anthropic.go

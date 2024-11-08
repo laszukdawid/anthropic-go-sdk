@@ -24,6 +24,17 @@
               "title": "Anthropic-Version"
             },
             "description": "The version of the Anthropic API you want to use.\n\nRead more about versioning and our version history [here](https://docs.anthropic.com/en/api/versioning)."
+          },
+          {
+            "name": "x-api-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "description": "Your unique API key for authentication. \n\nThis key is required in the header of all API requests, to authenticate your account and access Anthropic's services. Get your API key through the [Console](https://console.anthropic.com/settings/keys). Each key is scoped to a Workspace.",
+              "title": "X-Api-Key"
+            },
+            "description": "Your unique API key for authentication. \n\nThis key is required in the header of all API requests, to authenticate your account and access Anthropic's services. Get your API key through the [Console](https://console.anthropic.com/settings/keys). Each key is scoped to a Workspace."
           }
         ],
         "responses": {
@@ -79,6 +90,17 @@
               "title": "Anthropic-Version"
             },
             "description": "The version of the Anthropic API you want to use.\n\nRead more about versioning and our version history [here](https://docs.anthropic.com/en/api/versioning)."
+          },
+          {
+            "name": "x-api-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "description": "Your unique API key for authentication. \n\nThis key is required in the header of all API requests, to authenticate your account and access Anthropic's services. Get your API key through the [Console](https://console.anthropic.com/settings/keys). Each key is scoped to a Workspace.",
+              "title": "X-Api-Key"
+            },
+            "description": "Your unique API key for authentication. \n\nThis key is required in the header of all API requests, to authenticate your account and access Anthropic's services. Get your API key through the [Console](https://console.anthropic.com/settings/keys). Each key is scoped to a Workspace."
           }
         ],
         "responses": {
@@ -157,6 +179,17 @@
               "title": "Anthropic-Version"
             },
             "description": "The version of the Anthropic API you want to use.\n\nRead more about versioning and our version history [here](https://docs.anthropic.com/en/api/versioning)."
+          },
+          {
+            "name": "x-api-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "description": "Your unique API key for authentication. \n\nThis key is required in the header of all API requests, to authenticate your account and access Anthropic's services. Get your API key through the [Console](https://console.anthropic.com/settings/keys). Each key is scoped to a Workspace.",
+              "title": "X-Api-Key"
+            },
+            "description": "Your unique API key for authentication. \n\nThis key is required in the header of all API requests, to authenticate your account and access Anthropic's services. Get your API key through the [Console](https://console.anthropic.com/settings/keys). Each key is scoped to a Workspace."
           }
         ],
         "responses": {
@@ -235,6 +268,17 @@
               "title": "Anthropic-Version"
             },
             "description": "The version of the Anthropic API you want to use.\n\nRead more about versioning and our version history [here](https://docs.anthropic.com/en/api/versioning)."
+          },
+          {
+            "name": "x-api-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "description": "Your unique API key for authentication. \n\nThis key is required in the header of all API requests, to authenticate your account and access Anthropic's services. Get your API key through the [Console](https://console.anthropic.com/settings/keys). Each key is scoped to a Workspace.",
+              "title": "X-Api-Key"
+            },
+            "description": "Your unique API key for authentication. \n\nThis key is required in the header of all API requests, to authenticate your account and access Anthropic's services. Get your API key through the [Console](https://console.anthropic.com/settings/keys). Each key is scoped to a Workspace."
           }
         ],
         "responses": {
@@ -527,6 +571,17 @@
               "title": "Anthropic-Version"
             },
             "description": "The version of the Anthropic API you want to use.\n\nRead more about versioning and our version history [here](https://docs.anthropic.com/en/api/versioning)."
+          },
+          {
+            "name": "x-api-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "description": "Your unique API key for authentication. \n\nThis key is required in the header of all API requests, to authenticate your account and access Anthropic's services. Get your API key through the [Console](https://console.anthropic.com/settings/keys). Each key is scoped to a Workspace.",
+              "title": "X-Api-Key"
+            },
+            "description": "Your unique API key for authentication. \n\nThis key is required in the header of all API requests, to authenticate your account and access Anthropic's services. Get your API key through the [Console](https://console.anthropic.com/settings/keys). Each key is scoped to a Workspace."
           }
         ],
         "responses": {
@@ -689,6 +744,17 @@
               "title": "Anthropic-Version"
             },
             "description": "The version of the Anthropic API you want to use.\n\nRead more about versioning and our version history [here](https://docs.anthropic.com/en/api/versioning)."
+          },
+          {
+            "name": "x-api-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "description": "Your unique API key for authentication. \n\nThis key is required in the header of all API requests, to authenticate your account and access Anthropic's services. Get your API key through the [Console](https://console.anthropic.com/settings/keys). Each key is scoped to a Workspace.",
+              "title": "X-Api-Key"
+            },
+            "description": "Your unique API key for authentication. \n\nThis key is required in the header of all API requests, to authenticate your account and access Anthropic's services. Get your API key through the [Console](https://console.anthropic.com/settings/keys). Each key is scoped to a Workspace."
           }
         ],
         "responses": {
@@ -938,7 +1004,8 @@
                 ]
               }
             ],
-            "title": "Cache Control"
+            "title": "Cache Control",
+            "nullable": true
           },
           "type": {
             "enum": [
@@ -1001,7 +1068,6 @@
         "additionalProperties": false,
         "properties": {
           "cache_control": {
-            "nullable": true,
             "anyOf": [
               {
                 "discriminator": {
@@ -1017,7 +1083,8 @@
                 ]
               }
             ],
-            "title": "Cache Control"
+            "title": "Cache Control",
+            "nullable": true
           },
           "type": {
             "enum": [
@@ -1047,7 +1114,6 @@
             "type": "integer"
           },
           "display_number": {
-            "nullable": true,
             "anyOf": [
               {
                 "minimum": 0,
@@ -1055,7 +1121,8 @@
               }
             ],
             "description": "The X11 display number (e.g. 0, 1) for the display.",
-            "title": "Display Number"
+            "title": "Display Number",
+            "nullable": true
           }
         },
         "required": [
@@ -1648,13 +1715,13 @@
             "type": "string"
           },
           "properties": {
-            "nullable": true,
             "anyOf": [
               {
                 "type": "object"
               }
             ],
-            "title": "Properties"
+            "title": "Properties",
+            "nullable": true
           }
         },
         "required": [
@@ -1701,7 +1768,6 @@
             "description": "Indicates if there are more results in the requested page direction."
           },
           "first_id": {
-            "nullable": true,
             "anyOf": [
               {
                 "type": "string"
@@ -1711,10 +1777,10 @@
             "description": "First ID in the `data` list. Can be used as the `before_id` for the previous page.",
             "examples": [
               "msgbatch_013Zva2CMHLNnXjNJJKqJ2EF"
-            ]
+            ],
+            "nullable": true
           },
           "last_id": {
-            "nullable": true,
             "anyOf": [
               {
                 "type": "string"
@@ -1724,7 +1790,8 @@
             "description": "Last ID in the `data` list. Can be used as the `after_id` for the next page.",
             "examples": [
               "msgbatch_01HkcTjaV5uDC8jWR4ZsDV8d"
-            ]
+            ],
+            "nullable": true
           }
         },
         "type": "object",
@@ -1804,7 +1871,6 @@
             "$ref": "#/components/schemas/Model"
           },
           "stop_reason": {
-            "nullable": true,
             "anyOf": [
               {
                 "enum": [
@@ -1817,10 +1883,10 @@
               }
             ],
             "description": "The reason that we stopped.\n\nThis may be one the following values:\n* `\"end_turn\"`: the model reached a natural stopping point\n* `\"max_tokens\"`: we exceeded the requested `max_tokens` or the model's maximum\n* `\"stop_sequence\"`: one of your provided custom `stop_sequences` was generated\n* `\"tool_use\"`: the model invoked one or more tools\n\nIn non-streaming mode this value is always non-null. In streaming mode, it is null in the `message_start` event and non-null otherwise.",
-            "title": "Stop Reason"
+            "title": "Stop Reason",
+            "nullable": true
           },
           "stop_sequence": {
-            "nullable": true,
             "anyOf": [
               {
                 "type": "string"
@@ -1828,7 +1894,8 @@
             ],
             "default": null,
             "description": "Which custom stop sequence was generated, if any.\n\nThis value will be a non-null string if one of your custom stop sequences was generated.",
-            "title": "Stop Sequence"
+            "title": "Stop Sequence",
+            "nullable": true
           },
           "usage": {
             "allOf": [
@@ -1899,7 +1966,6 @@
             "description": "Tallies requests within the Message Batch, categorized by their status.\n\nRequests start as `processing` and move to one of the other statuses only once processing of the entire batch ends. The sum of all values always matches the total number of requests in the batch."
           },
           "ended_at": {
-            "nullable": true,
             "anyOf": [
               {
                 "type": "string",
@@ -1910,7 +1976,8 @@
             "description": "RFC 3339 datetime string representing the time at which processing for the Message Batch ended. Specified only once processing ends.\n\nProcessing ends when every request in a Message Batch has either succeeded, errored, canceled, or expired.",
             "examples": [
               "2024-08-20T18:37:24.100435Z"
-            ]
+            ],
+            "nullable": true
           },
           "created_at": {
             "type": "string",
@@ -1931,7 +1998,6 @@
             ]
           },
           "archived_at": {
-            "nullable": true,
             "anyOf": [
               {
                 "type": "string",
@@ -1942,10 +2008,10 @@
             "description": "RFC 3339 datetime string representing the time at which the Message Batch was archived and its results became unavailable.",
             "examples": [
               "2024-08-20T18:37:24.100435Z"
-            ]
+            ],
+            "nullable": true
           },
           "cancel_initiated_at": {
-            "nullable": true,
             "anyOf": [
               {
                 "type": "string",
@@ -1956,10 +2022,10 @@
             "description": "RFC 3339 datetime string representing the time at which cancellation was initiated for the Message Batch. Specified only if cancellation was initiated.",
             "examples": [
               "2024-08-20T18:37:24.100435Z"
-            ]
+            ],
+            "nullable": true
           },
           "results_url": {
-            "nullable": true,
             "anyOf": [
               {
                 "type": "string"
@@ -1969,7 +2035,8 @@
             "description": "URL to a `.jsonl` file containing the results of the Message Batch requests. Specified only once processing ends.\n\nResults in the file are not guaranteed to be in the same order as requests. Use the `custom_id` field to match results to requests.",
             "examples": [
               "https://api.anthropic.com/v1/messages/batches/msgbatch_013Zva2CMHLNnXjNJJKqJ2EF/results"
-            ]
+            ],
+            "nullable": true
           }
         },
         "type": "object",
@@ -2041,7 +2108,6 @@
       "BetaMessageDelta": {
         "properties": {
           "stop_reason": {
-            "nullable": true,
             "anyOf": [
               {
                 "enum": [
@@ -2054,17 +2120,18 @@
               }
             ],
             "default": null,
-            "title": "Stop Reason"
+            "title": "Stop Reason",
+            "nullable": true
           },
           "stop_sequence": {
-            "nullable": true,
             "anyOf": [
               {
                 "type": "string"
               }
             ],
             "default": null,
-            "title": "Stop Sequence"
+            "title": "Stop Sequence",
+            "nullable": true
           }
         },
         "required": [
@@ -2202,7 +2269,6 @@
         "additionalProperties": false,
         "properties": {
           "user_id": {
-            "nullable": true,
             "anyOf": [
               {
                 "maxLength": 256,
@@ -2213,7 +2279,8 @@
             "examples": [
               "13803d75-b4b5-4c3e-b2a2-6f21399b021b"
             ],
-            "title": "User Id"
+            "title": "User Id",
+            "nullable": true
           }
         },
         "title": "Metadata",
@@ -2373,7 +2440,6 @@
         "additionalProperties": false,
         "properties": {
           "cache_control": {
-            "nullable": true,
             "anyOf": [
               {
                 "discriminator": {
@@ -2389,7 +2455,8 @@
                 ]
               }
             ],
-            "title": "Cache Control"
+            "title": "Cache Control",
+            "nullable": true
           },
           "type": {
             "enum": [
@@ -2424,7 +2491,6 @@
         "additionalProperties": false,
         "properties": {
           "cache_control": {
-            "nullable": true,
             "anyOf": [
               {
                 "discriminator": {
@@ -2440,7 +2506,8 @@
                 ]
               }
             ],
-            "title": "Cache Control"
+            "title": "Cache Control",
+            "nullable": true
           },
           "type": {
             "enum": [
@@ -2464,7 +2531,6 @@
         "additionalProperties": false,
         "properties": {
           "cache_control": {
-            "nullable": true,
             "anyOf": [
               {
                 "discriminator": {
@@ -2480,7 +2546,8 @@
                 ]
               }
             ],
-            "title": "Cache Control"
+            "title": "Cache Control",
+            "nullable": true
           },
           "type": {
             "enum": [
@@ -2506,7 +2573,6 @@
         "additionalProperties": false,
         "properties": {
           "cache_control": {
-            "nullable": true,
             "anyOf": [
               {
                 "discriminator": {
@@ -2522,7 +2588,8 @@
                 ]
               }
             ],
-            "title": "Cache Control"
+            "title": "Cache Control",
+            "nullable": true
           },
           "type": {
             "enum": [
@@ -2589,7 +2656,6 @@
         "additionalProperties": false,
         "properties": {
           "cache_control": {
-            "nullable": true,
             "anyOf": [
               {
                 "discriminator": {
@@ -2605,7 +2671,8 @@
                 ]
               }
             ],
-            "title": "Cache Control"
+            "title": "Cache Control",
+            "nullable": true
           },
           "type": {
             "enum": [
@@ -2745,7 +2812,6 @@
         "additionalProperties": false,
         "properties": {
           "cache_control": {
-            "nullable": true,
             "anyOf": [
               {
                 "discriminator": {
@@ -2761,7 +2827,8 @@
                 ]
               }
             ],
-            "title": "Cache Control"
+            "title": "Cache Control",
+            "nullable": true
           },
           "type": {
             "enum": [
@@ -2790,7 +2857,6 @@
         "additionalProperties": false,
         "properties": {
           "type": {
-            "nullable": true,
             "anyOf": [
               {
                 "enum": [
@@ -2799,7 +2865,8 @@
                 "type": "string"
               }
             ],
-            "title": "Type"
+            "title": "Type",
+            "nullable": true
           },
           "description": {
             "description": "Description of what this tool does.\n\nTool descriptions should be as detailed as possible. The more information that the model has about what the tool is and how to use it, the better it will perform. You can use natural language descriptions to reinforce important aspects of the tool input JSON schema.",
@@ -2844,7 +2911,6 @@
             ]
           },
           "cache_control": {
-            "nullable": true,
             "anyOf": [
               {
                 "discriminator": {
@@ -2860,7 +2926,8 @@
                 ]
               }
             ],
-            "title": "Cache Control"
+            "title": "Cache Control",
+            "nullable": true
           }
         },
         "required": [
@@ -2956,7 +3023,6 @@
             "type": "integer"
           },
           "cache_creation_input_tokens": {
-            "nullable": true,
             "anyOf": [
               {
                 "type": "integer"
@@ -2967,10 +3033,10 @@
             "examples": [
               2051
             ],
-            "title": "Cache Creation Input Tokens"
+            "title": "Cache Creation Input Tokens",
+            "nullable": true
           },
           "cache_read_input_tokens": {
-            "nullable": true,
             "anyOf": [
               {
                 "type": "integer"
@@ -2981,7 +3047,8 @@
             "examples": [
               2051
             ],
-            "title": "Cache Read Input Tokens"
+            "title": "Cache Read Input Tokens",
+            "nullable": true
           },
           "output_tokens": {
             "description": "The number of output tokens which were used.",
@@ -3133,7 +3200,6 @@
             ]
           },
           "stop_reason": {
-            "nullable": true,
             "anyOf": [
               {
                 "type": "string"
@@ -3143,7 +3209,8 @@
             "description": "The reason that we stopped.\n\nThis may be one the following values:\n* `\"stop_sequence\"`: we reached a stop sequence — either provided by you via the `stop_sequences` parameter, or a stop sequence built into the model\n* `\"max_tokens\"`: we exceeded `max_tokens_to_sample` or the model's maximum",
             "examples": [
               "stop_sequence"
-            ]
+            ],
+            "nullable": true
           },
           "model": {
             "$ref": "#/components/schemas/Model"
@@ -3597,13 +3664,13 @@
             "type": "string"
           },
           "properties": {
-            "nullable": true,
             "anyOf": [
               {
                 "type": "object"
               }
             ],
-            "title": "Properties"
+            "title": "Properties",
+            "nullable": true
           }
         },
         "required": [
@@ -3703,7 +3770,6 @@
             "$ref": "#/components/schemas/Model"
           },
           "stop_reason": {
-            "nullable": true,
             "anyOf": [
               {
                 "enum": [
@@ -3716,10 +3782,10 @@
               }
             ],
             "description": "The reason that we stopped.\n\nThis may be one the following values:\n* `\"end_turn\"`: the model reached a natural stopping point\n* `\"max_tokens\"`: we exceeded the requested `max_tokens` or the model's maximum\n* `\"stop_sequence\"`: one of your provided custom `stop_sequences` was generated\n* `\"tool_use\"`: the model invoked one or more tools\n\nIn non-streaming mode this value is always non-null. In streaming mode, it is null in the `message_start` event and non-null otherwise.",
-            "title": "Stop Reason"
+            "title": "Stop Reason",
+            "nullable": true
           },
           "stop_sequence": {
-            "nullable": true,
             "anyOf": [
               {
                 "type": "string"
@@ -3727,7 +3793,8 @@
             ],
             "default": null,
             "description": "Which custom stop sequence was generated, if any.\n\nThis value will be a non-null string if one of your custom stop sequences was generated.",
-            "title": "Stop Sequence"
+            "title": "Stop Sequence",
+            "nullable": true
           },
           "usage": {
             "allOf": [
@@ -3763,7 +3830,6 @@
       "MessageDelta": {
         "properties": {
           "stop_reason": {
-            "nullable": true,
             "anyOf": [
               {
                 "enum": [
@@ -3776,17 +3842,18 @@
               }
             ],
             "default": null,
-            "title": "Stop Reason"
+            "title": "Stop Reason",
+            "nullable": true
           },
           "stop_sequence": {
-            "nullable": true,
             "anyOf": [
               {
                 "type": "string"
               }
             ],
             "default": null,
-            "title": "Stop Sequence"
+            "title": "Stop Sequence",
+            "nullable": true
           }
         },
         "required": [
@@ -3944,7 +4011,6 @@
         "additionalProperties": false,
         "properties": {
           "user_id": {
-            "nullable": true,
             "anyOf": [
               {
                 "maxLength": 256,
@@ -3955,7 +4021,8 @@
             "examples": [
               "13803d75-b4b5-4c3e-b2a2-6f21399b021b"
             ],
-            "title": "User Id"
+            "title": "User Id",
+            "nullable": true
           }
         },
         "title": "Metadata",
@@ -4318,7 +4385,6 @@
             "$ref": "#/components/schemas/Model"
           },
           "stop_reason": {
-            "nullable": true,
             "anyOf": [
               {
                 "enum": [
@@ -4331,10 +4397,10 @@
               }
             ],
             "description": "The reason that we stopped.\n\nThis may be one the following values:\n* `\"end_turn\"`: the model reached a natural stopping point\n* `\"max_tokens\"`: we exceeded the requested `max_tokens` or the model's maximum\n* `\"stop_sequence\"`: one of your provided custom `stop_sequences` was generated\n* `\"tool_use\"`: the model invoked one or more tools\n\nIn non-streaming mode this value is always non-null. In streaming mode, it is null in the `message_start` event and non-null otherwise.",
-            "title": "Stop Reason"
+            "title": "Stop Reason",
+            "nullable": true
           },
           "stop_sequence": {
-            "nullable": true,
             "anyOf": [
               {
                 "type": "string"
@@ -4342,7 +4408,8 @@
             ],
             "default": null,
             "description": "Which custom stop sequence was generated, if any.\n\nThis value will be a non-null string if one of your custom stop sequences was generated.",
-            "title": "Stop Sequence"
+            "title": "Stop Sequence",
+            "nullable": true
           },
           "usage": {
             "allOf": [
@@ -4431,7 +4498,6 @@
         "additionalProperties": false,
         "properties": {
           "cache_control": {
-            "nullable": true,
             "anyOf": [
               {
                 "discriminator": {
@@ -4447,7 +4513,8 @@
                 ]
               }
             ],
-            "title": "Cache Control"
+            "title": "Cache Control",
+            "nullable": true
           },
           "type": {
             "enum": [
@@ -4482,7 +4549,6 @@
         "additionalProperties": false,
         "properties": {
           "cache_control": {
-            "nullable": true,
             "anyOf": [
               {
                 "discriminator": {
@@ -4498,7 +4564,8 @@
                 ]
               }
             ],
-            "title": "Cache Control"
+            "title": "Cache Control",
+            "nullable": true
           },
           "type": {
             "enum": [
@@ -4524,7 +4591,6 @@
         "additionalProperties": false,
         "properties": {
           "cache_control": {
-            "nullable": true,
             "anyOf": [
               {
                 "discriminator": {
@@ -4540,7 +4606,8 @@
                 ]
               }
             ],
-            "title": "Cache Control"
+            "title": "Cache Control",
+            "nullable": true
           },
           "type": {
             "enum": [
@@ -4604,7 +4671,6 @@
         "additionalProperties": false,
         "properties": {
           "cache_control": {
-            "nullable": true,
             "anyOf": [
               {
                 "discriminator": {
@@ -4620,7 +4686,8 @@
                 ]
               }
             ],
-            "title": "Cache Control"
+            "title": "Cache Control",
+            "nullable": true
           },
           "type": {
             "enum": [
@@ -4701,7 +4768,6 @@
             ]
           },
           "cache_control": {
-            "nullable": true,
             "anyOf": [
               {
                 "discriminator": {
@@ -4717,7 +4783,8 @@
                 ]
               }
             ],
-            "title": "Cache Control"
+            "title": "Cache Control",
+            "nullable": true
           }
         },
         "required": [
@@ -4738,7 +4805,6 @@
             "type": "integer"
           },
           "cache_creation_input_tokens": {
-            "nullable": true,
             "anyOf": [
               {
                 "type": "integer"
@@ -4749,10 +4815,10 @@
             "examples": [
               2051
             ],
-            "title": "Cache Creation Input Tokens"
+            "title": "Cache Creation Input Tokens",
+            "nullable": true
           },
           "cache_read_input_tokens": {
-            "nullable": true,
             "anyOf": [
               {
                 "type": "integer"
@@ -4763,7 +4829,8 @@
             "examples": [
               2051
             ],
-            "title": "Cache Read Input Tokens"
+            "title": "Cache Read Input Tokens",
+            "nullable": true
           },
           "output_tokens": {
             "description": "The number of output tokens which were used.",
